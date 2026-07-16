@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>MarketBot</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://unpkg.com/@tonconnect/ui@2/dist/tonconnect-ui.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">MarketBot</span>
+    </div>
+    <div id="ton-connect"></div>
+  </header>
+
+  <main id="view-catalog" class="view">
+    <h1 class="page-title">Магазин</h1>
+    <p class="page-sub">Цифровые товары Telegram с оплатой в TON</p>
+
+    <div id="category-grid" class="category-grid">
+      <!-- категории рендерятся из app.js -->
+    </div>
+  </main>
+
+  <main id="view-stars" class="view hidden">
+    <button class="back-btn" data-back="catalog">← Магазин</button>
+    <h1 class="page-title">⭐ Telegram Stars</h1>
+
+    <div class="qty-grid" id="stars-qty-grid">
+      <button class="qty-chip" data-qty="50">50</button>
+      <button class="qty-chip" data-qty="100">100</button>
+      <button class="qty-chip" data-qty="250">250</button>
+      <button class="qty-chip" data-qty="500">500</button>
+      <button class="qty-chip" data-qty="1000">1000</button>
+    </div>
+
+    <label class="field-label" for="stars-username">Username получателя</label>
+    <input id="stars-username" class="field-input" type="text" placeholder="username" autocomplete="off" />
+
+    <div id="stars-price-box" class="price-box hidden">
+      <span class="price-label">К оплате</span>
+      <span id="stars-price-value" class="price-value">— TON</span>
+    </div>
+
+    <button id="stars-buy-btn" class="primary-btn" disabled>Выбрать количество</button>
+  </main>
+
+  <main id="view-status" class="view hidden">
+    <div class="status-box">
+      <div id="status-spinner" class="spinner"></div>
+      <h2 id="status-title" class="status-title">Ожидаем подтверждение в кошельке…</h2>
+      <p id="status-text" class="status-text">Не закрывайте это окно</p>
+    </div>
+    <button id="status-back-btn" class="primary-btn hidden">Готово</button>
+  </main>
+
+  <main id="view-soon" class="view hidden">
+    <button class="back-btn" data-back="catalog">← Магазин</button>
+    <div class="empty-state">
+      <div class="empty-icon">🚧</div>
+      <h2>Раздел в разработке</h2>
+      <p>Появится в одном из ближайших обновлений</p>
+    </div>
+  </main>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+:root {
+  --bg: var(--tg-theme-bg-color, #0e1116);
+  --bg-secondary: var(--tg-theme-secondary-bg-color, #161b22);
+  --text: var(--tg-theme-text-color, #f2f4f7);
+  --hint: var(--tg-theme-hint-color, #7d8590);
+  --accent: #0098ea;      /* фирменный синий TON */
+  --accent-soft: #0098ea22;
+  --danger: #ef4444;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 16px 32px;
+  min-height: 100vh;
+}
+
+/* ---------- Topbar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.brand-mark {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+/* ---------- Typography ---------- */
+
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 4px 0 2px;
+}
+
+.page-sub {
+  color: var(--hint);
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+/* ---------- View switching ---------- */
+
+.view { animation: fade-in .18s ease-out; }
+.hidden { display: none !important; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Category grid ---------- */
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.category-card {
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border-color .15s, transform .1s;
+}
+
+.category-card:active {
+  transform: scale(0.97);
+}
+
+.category-card.ready {
+  border-color: var(--accent-soft);
+}
+
+.category-emoji {
+  font-size: 26px;
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.category-badge {
+  font-size: 11px;
+  color: var(--hint);
+}
+
+.category-badge.ready {
+  color: var(--accent);
+}
+
+/* ---------- Back button ---------- */
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 0 0 16px;
+  cursor: pointer;
+}
+
+/* ---------- Quantity chips ---------- */
+
+.qty-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.qty-chip {
+  background: var(--bg-secondary);
+  border: 1.5px solid transparent;
+  color: var(--text);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.qty-chip.selected {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Fields ---------- */
+
+.field-label {
+  display: block;
+  font-size: 13px;
+  color: var(--hint);
+  margin-bottom: 6px;
+}
+
+.field-input {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.field-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ---------- Price box ---------- */
+
+.price-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent-soft);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.price-label {
+  font-size: 13px;
+  color: var(--hint);
+}
+
+.price-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ---------- Buttons ---------- */
+
+.primary-btn {
+  width: 100%;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-btn:disabled {
+  background: var(--bg-secondary);
+  color: var(--hint);
+  cursor: not-allowed;
+}
+
+/* ---------- Status view ---------- */
+
+.status-box {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.status-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.status-text {
+  color: var(--hint);
+  font-size: 14px;
+  margin: 0;
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Empty state ---------- */
+
+.empty-state {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--hint);
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
